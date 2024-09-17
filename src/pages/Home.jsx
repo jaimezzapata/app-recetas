@@ -1,17 +1,5 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./auth/Login";
-import Dashboard from "./Dashboard";
-let router = createBrowserRouter([
-  {
-    element: <Login />,
-    path: "/login",
-  },
-  {
-    path: "/",
-    element: <Dashboard />,
-  },
-]);
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";import { enrutadorApp } from "../routes/enrutador";
+let router = createBrowserRouter(enrutadorApp);
 const Home = () => {
   return <RouterProvider router={router} />;
 };
