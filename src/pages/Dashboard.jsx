@@ -1,5 +1,5 @@
 import Header from "../components/Header"
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import './Dashboard.css'
 
 const Dashboard = () => {
@@ -8,11 +8,11 @@ const Dashboard = () => {
             <Header />
             <section className="panel-control">
                 <nav>
-                    <Link>Recetas Vegetariasn</Link>
-                    <Link>Recetas No Vegetarianas</Link>
+                    <Link to='vegetarianas'>Recetas Vegetarianas</Link>
+                    <Link to='no-vegetarianas'>Recetas No Vegetarianas</Link>
                 </nav>
                 <section>
-
+                    <Outlet />
                 </section>
             </section>
         </main>
