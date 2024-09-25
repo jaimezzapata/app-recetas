@@ -1,8 +1,8 @@
 import { recetasVegetarianas } from "../../data/recetas"
-
+import './Vegetarianas.css'
 const Vegetarianas = () => {
   return (
-    <div>
+    <div className="cards">
       {
         recetasVegetarianas.map((receta) => (
           <section>
