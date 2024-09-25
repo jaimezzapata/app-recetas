@@ -17,3 +17,22 @@
     box-shadow: 5px 5px 10px black;
     padding: 10px;
 }
+
+.cards section div {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cards section div button, .cards section div a{
+    text-decoration: none;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    background: none;
+    border: solid 1px black;
+    cursor: pointer;
+}
