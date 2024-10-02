@@ -6,7 +6,7 @@ const Login = () => {
 
     console.log(usuario)
     function signIn() {
-        if (usuario == 'Jaime') {
+        if (usuario == 'Jaime' && contrasena == '123456') {
             alert('Inicio de sesión correcto')
         }
     }
