@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Login.css'
 const Login = () => {
+
     const [usuario, setUsuario] = useState('')
     const [contrasena, setContrasena] = useState('')
 
@@ -10,6 +11,7 @@ const Login = () => {
             alert('Inicio de sesión correcto')
         }
     }
+
     return (
         <form className="form" action="">
             <section>
