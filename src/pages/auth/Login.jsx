@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Login.css'
 let urlUsuarios = 'http://localhost:3000/usuarios'
 
@@ -7,20 +7,20 @@ const Login = () => {
     const [usuario, setUsuario] = useState('')
     const [contrasena, setContrasena] = useState('')
     const [usuarios, setUsuarios] = useState([])
-
+    
     function getUsuarios() {
         fetch('http://localhost:3000/usuarios')
             .then(response => response.json())
-            .then(json => console.log(json))
+            .then(json => setUsuarios(json))
     }
-    getUsuarios()
 
-    console.log(usuario)
+
     function signIn() {
         if (usuario == 'Jaime' && contrasena == '123456') {
             alert('Inicio de sesión correcto')
         }
     }
+    
 
     return (
         <form className="form" action="">
