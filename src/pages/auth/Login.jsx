@@ -1,26 +1,27 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Login.css'
 let urlUsuarios = 'http://localhost:3000/usuarios'
 
 const Login = () => {
-
     const [usuario, setUsuario] = useState('')
     const [contrasena, setContrasena] = useState('')
     const [usuarios, setUsuarios] = useState([])
-    
+
     function getUsuarios() {
-        fetch('http://localhost:3000/usuarios')
+        fetch(urlUsuarios)
             .then(response => response.json())
             .then(json => setUsuarios(json))
+            .catch(error => console.log(error))
     }
-
-
+    useEffect(() => {
+        getUsuarios()
+    }, [])
+    console.log(usuarios)
     function signIn() {
         if (usuario == 'Jaime' && contrasena == '123456') {
             alert('Inicio de sesión correcto')
         }
     }
-    
 
     return (
         <form className="form" action="">
