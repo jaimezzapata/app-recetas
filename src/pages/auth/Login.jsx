@@ -18,11 +18,15 @@ const Login = () => {
     }, [])
     console.log(usuarios)
     function signIn() {
-        if (usuario == 'Jaime' && contrasena == '123456') {
+        // console.log(findUser())
+        if (findUser()) {
             alert('Inicio de sesión correcto')
         }
     }
-
+    function findUser() {
+        let auth = usuarios.some((item) => item.user == usuario && item.password == contrasena)
+        return auth
+    }
     return (
         <form className="form" action="">
             <section>
