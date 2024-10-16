@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Login.css'
 let urlUsuarios = 'http://localhost:3000/usuarios'
 
@@ -6,6 +7,7 @@ const Login = () => {
     const [usuario, setUsuario] = useState('')
     const [contrasena, setContrasena] = useState('')
     const [usuarios, setUsuarios] = useState([])
+    let redireccion = useNavigate()
 
     function getUsuarios() {
         fetch(urlUsuarios)
@@ -20,7 +22,7 @@ const Login = () => {
     function signIn() {
         // console.log(findUser())
         if (findUser()) {
-            alert('Inicio de sesión correcto')
+            redireccion('/')
         }
     }
     function findUser() {
