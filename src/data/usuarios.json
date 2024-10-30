@@ -35,6 +35,14 @@
         "Comer",
         "Jugar Play"
       ]
+    },
+    {
+      "id": "fe9b",
+      "user": "admindos",
+      "password": "",
+      "name": "",
+      "email": "",
+      "hobbies": ""
     }
   ]
 }

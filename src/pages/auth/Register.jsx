@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import Swal from 'sweetalert2'
 let urlUsuarios = 'http://localhost:3000/usuarios'
 
 const Register = () => {
@@ -8,6 +10,7 @@ const Register = () => {
     const [correo, setCorreo] = useState('')
     const [hobbies, setHobbies] = useState('')
     const [usuarios, setUsuarios] = useState('')
+    let redireccion = useNavigate()
 
     function getUsuarios() {
         fetch(urlUsuarios)
@@ -30,10 +33,11 @@ const Register = () => {
         }
         fetch(urlUsuarios, {
             method: 'POST',
-            body: nuevoUsuario
+            body: JSON.stringify(nuevoUsuario)
         })
-            .then(response => response.json())
-            .then(json => setUsuarios(json))
+            .then(response => {
+                console.log(response)
+            })
             .catch(error => console.log(error))
     }
 
@@ -44,9 +48,36 @@ const Register = () => {
 
     function registrarUsuario() {
         if (buscarUsuario()) {
-            alert('Usuario y/o correo ya existe en la base de datos')
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Usuario y/o correo ya existe en la base de datos"
+            });
         } else {
             crearUsuario()
+            let timerInterval;
+            Swal.fire({
+                title: "Auto close alert!",
+                html: "I will close in <b></b> milliseconds.",
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                    const timer = Swal.getPopup().querySelector("b");
+                    timerInterval = setInterval(() => {
+                        timer.textContent = `${Swal.getTimerLeft()}`;
+                    }, 100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                    redireccion('/login')
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log("I was closed by the timer");
+                }
+            });
         }
     }
 

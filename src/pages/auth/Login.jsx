@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 import './Login.css'
 let urlUsuarios = 'http://localhost:3000/usuarios'
 
@@ -22,7 +23,35 @@ const Login = () => {
     function signIn() {
         // console.log(findUser())
         if (findUser()) {
-            redireccion('/')
+            let timerInterval;
+            Swal.fire({
+                title: "Está a punto de ser redireccionado",
+                html: "Esta eventana se cerrará en <b></b> milisegundos.",
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                    const timer = Swal.getPopup().querySelector("b");
+                    timerInterval = setInterval(() => {
+                        timer.textContent = `${Swal.getTimerLeft()}`;
+                    }, 100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                    redireccion('/')
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log("I was closed by the timer");
+                }
+            });
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Usuario y/o contraseña incorrecto"
+            });
         }
     }
     function findUser() {
