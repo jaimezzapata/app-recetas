@@ -14,7 +14,7 @@ const Vegetarianas = () => {
             <p>Tiempo: {receta.tiempo}</p>
             <div>
               <button className="eliminar">Eliminar</button>
-              <Link className="editar">Editar</Link>
+              <Link to={'/editar-receta-vegetariana'} className="editar">Editar</Link>
               <Link className="detalle">Detalles</Link>
             </div>
           </section>

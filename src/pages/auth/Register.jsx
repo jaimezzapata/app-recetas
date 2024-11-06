@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import './Register.css'
 import Swal from 'sweetalert2'
 let urlUsuarios = 'http://localhost:3000/usuarios'
 
@@ -81,18 +82,19 @@ const Register = () => {
         }
     }
 
-
     return (
-        <form>
-            <input onChange={(e) => { setUsuario(e.target.value) }} placeholder="Usuario" type="text" />
-            <input onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" type="text" />
-            <input onChange={(e) => { setNombre(e.target.value) }} placeholder="Nombre" type="text" />
-            <input onChange={(e) => { setCorreo(e.target.value) }} placeholder="Correo" type="text" />
-            <input onChange={(e) => { setHobbies(e.target.value) }} placeholder="Hobbies" type="text" />
-            <div>
-                <button onClick={registrarUsuario} type="button">Registrar</button>
-            </div>
-        </form>
+        <section className="container">
+            <form>
+                <input onChange={(e) => { setUsuario(e.target.value) }} placeholder="Usuario" type="text" />
+                <input onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" type="text" />
+                <input onChange={(e) => { setNombre(e.target.value) }} placeholder="Nombre" type="text" />
+                <input onChange={(e) => { setCorreo(e.target.value) }} placeholder="Correo" type="text" />
+                <input onChange={(e) => { setHobbies(e.target.value) }} placeholder="Hobbies" type="text" />
+                <div>
+                    <button onClick={registrarUsuario} type="button">Registrar</button>
+                </div>
+            </form>
+        </section>
     )
 }
 
