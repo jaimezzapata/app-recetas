@@ -19,6 +19,7 @@ const Login = () => {
     useEffect(() => {
         getUsuarios()
     }, [])
+    
     console.log(usuarios)
     function signIn() {
         // console.log(findUser())

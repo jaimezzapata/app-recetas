@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "json": "json-server --watch src/data/usuarios.json"
+    "json": "json-server --watch src/data/database.json"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.3",
