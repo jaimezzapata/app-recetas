@@ -55,10 +55,10 @@
     },
     {
       "id": "2",
-      "nombre": "Hamburguesa de Lentejas",
-      "descripcion": "Hamburguesa vegetariana a base de Lentejas y otros granos",
+      "nombre": "Tocino Vegano",
+      "descripcion": "Tocino a base de costra de Berenjena",
       "dificultad": "Media",
-      "tiempo": "2 Horas"
+      "tiempo": "3 Horas"
     }
   ],
   "no-vegetarianas": []

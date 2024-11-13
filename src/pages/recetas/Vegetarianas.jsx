@@ -18,10 +18,14 @@ const Vegetarianas = () => {
     consultarRecetas();
   }, []);
 
-  function eliminarReceta(id) {
-    axios.delete(urlRecetas + "/" + id);
+  async function eliminarReceta(id) {
+    await axios.delete(urlRecetas + "/" + id);
     consultarRecetas();
   }
+
+  // const funcionFlecha = async () => {
+
+  // }
 
   function confirmarEliminarReceta(id, nombre) {
     Swal.fire({
@@ -60,7 +64,7 @@ const Vegetarianas = () => {
             >
               Eliminar
             </button>
-            <Link to={"/editar-receta-vegetariana"} className="editar">
+            <Link to={"/editar-receta-vegetariana/"+receta.id} className="editar">
               Editar
             </Link>
             <Link className="detalle">Detalles</Link>
