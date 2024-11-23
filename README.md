@@ -54,6 +54,6 @@
 
 ###
 
-<p align="left">- Abrir una terminal de comandos<br>- Clonar el repo<br>- Abrir el proyecto con el editos favorito<br>- Instalar las dependencias (npm i)<br>- Levantar el servidor (npm run dec)</p>
+<p align="left">- Abrir una terminal de comandos<br>- Clonar el repo<br>- Abrir el proyecto con el editos favorito<br>- Instalar las dependencias (npm i)<br>- Levantar el servidor (npm run dev)</p>
 
 ###
